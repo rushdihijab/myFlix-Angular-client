@@ -29,6 +29,7 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     UserRegistrationFormComponent,
+    UserLoginFormComponent
 
   ],
   imports: [
