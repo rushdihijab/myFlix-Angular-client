@@ -1,0 +1,24 @@
+<app-navigation></app-navigation>
+<div class="profile-container">
+    <mat-card class="profile-card">
+        <mat-card-header>
+            <mat-card-subtitle>Profile</mat-card-subtitle>
+            <div class="buttons-container">
+                <button mat-raised-button class="profile-card__edit"
+                    (click)="openEditFormDialog(user.Username, user.Email, user.Birthday)">
+                    <mat-icon>create</mat-icon>
+                    Edit Profile
+                </button>
+                <button mat-raised-button color="warn" class="profile-card__delete" (click)="deleteUser()">
+                    <mat-icon>delete_forever</mat-icon>
+                    Delete account
+                </button>
+            </div>
+        </mat-card-header>
+        <mat-card-content>
+            <p><span>Username:</span> {{user.Username}}</p>
+            <p><span>Email:</span> {{user.Email}}</p>
+            <p><span>Birthday:</span> {{user.Birthday | date:'longDate'}}</p>
+        </mat-card-content>
+    </mat-card>
+</div>
