@@ -1,0 +1,33 @@
+<mat-card class="edit-card">
+    <mat-card-header>
+        <mat-card-title>Edit Profile</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form>
+            <mat-form-field>
+                <input matInput [(ngModel)]="userData.Username" type="text" name="Username">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput [(ngModel)]="userData.Password" type="password" placeholder="New Password"
+                    name="Password">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput [(ngModel)]="userData.Email" type="email" name="Email">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput [(ngModel)]="userData.Birthday" type="date" name="Birthday">
+
+            </mat-form-field>
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button (click)="editUserInfo()" color="accent" class="edit-card_submit">
+            <mat-icon>create</mat-icon>
+            Submit
+        </button>
+        <button mat-raised-button (click)="closeDialog()" color="accent" class="edit-card_cancel">
+            <mat-icon>clear</mat-icon>
+            Cancel
+        </button>
+    </mat-card-actions>
+</mat-card>
