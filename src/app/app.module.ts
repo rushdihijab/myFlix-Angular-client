@@ -26,11 +26,14 @@ import { DirectorComponent } from './director/director.component';
 import { GenreComponent } from './genre/genre.component';
 import { SynopsisComponent } from './synopsis/synopsis.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { ProfileComponent } from './profile/profile.component';
+import { EditFormComponent } from './edit-form/edit-form.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'movies', component: MovieCardComponent },
   { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
+  { path: 'profile', component: ProfileComponent },
 ];
 
 @NgModule({
@@ -43,7 +46,9 @@ const appRoutes: Routes = [
     DirectorComponent,
     GenreComponent,
     SynopsisComponent,
-    NavigationComponent
+    NavigationComponent,
+    ProfileComponent,
+    EditFormComponent
 
   ],
   imports: [
