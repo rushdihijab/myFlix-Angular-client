@@ -8,7 +8,7 @@ import { FetchApiDataService } from '../fetch-api-data.service';
 @Component({
   selector: 'app-user-login-form',
   templateUrl: './user-login-form.component.html',
-  styleUrls: ['./userLogin/user-login-form.component.css']
+  styleUrls: ['./user-login-form.component.scss']
 })
 export class UserLoginFormComponent implements OnInit {
   @Input() userData = { Username: '', Password: '' }
@@ -36,7 +36,8 @@ export class UserLoginFormComponent implements OnInit {
         localStorage.setItem('user', result.user.Username);
         localStorage.setItem('token', result.token);
         this.dialogRef.close(); // Close the modal on success
-        this.snackBar.open('User Login Successful', 'ok', {});
+        this.snackBar.open(`Welcome Back ${this.userData.Username}`, 'OK', { duration: 2000 });
+        this.router.navigate(['movies']);
 
       },
       error: (error) => {
