@@ -1,9 +1,18 @@
 /* Set a fixed height for all the mat-cards */
-mat-card {
-    height: 600px;
+.card-container {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 64px;
+    /* replace 64px with the height of your navigation bar */
+}
+
+.movie-card {
+    flex: 1 1 auto;
+    margin: 16px;
+    max-width: 350px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
 }
 
 /* Center the movie titles and subtitles */
@@ -15,7 +24,7 @@ mat-card-subtitle {
 /* Style the movie posters */
 img {
     width: 100%;
-    height: auto;
+    height: 250px;
     object-fit: cover;
     object-position: center;
 }
@@ -30,4 +39,23 @@ mat-card-actions {
 /* Add some padding to the mat-card actions */
 button {
     padding: 8px 16px;
+    font-size: 14px;
+}
+
+/* Hover effect for the movie card */
+.movie-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Styling for the favorite icon */
+.movie-card__fav {
+    color: #f44336;
+    /* Change to your desired color */
+}
+
+/* Styling for the genre, director, and synopsis buttons */
+.movie-card__dialog {
+    color: #2196f3;
+    /* Change to your desired color */
 }
