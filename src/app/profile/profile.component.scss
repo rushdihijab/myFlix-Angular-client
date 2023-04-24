@@ -1,0 +1,88 @@
+.profile-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-card {
+    width: 70rem;
+    background-color: #383838;
+    color: hsla(0, 6%, 93%, 0.923);
+    margin: 5vw;
+    padding: 2.5rem;
+
+    &__edit {
+        margin: 0 1rem;
+    }
+}
+
+.buttons-container {
+    display: inline-block;
+    margin-left: auto;
+}
+
+.mat-mdc-card-subtitle {
+    color: #fff;
+    font-size: 2.8rem;
+}
+
+.mat-mdc-card-content {
+    padding: 2rem 1.6rem
+}
+
+.mat-mdc-card-content:last-child p span {
+    display: inline-block;
+    margin-right: 1rem;
+    font-size: 1.8rem;
+}
+
+
+@media all and (max-width: 780px) {
+    .profile-card {
+        min-width: 40rem;
+    }
+}
+
+@media all and (max-width: 520px) {
+    .profile-card {
+
+        &__edit,
+        &__delete {
+            font-size: 1rem;
+            padding: 0 12px;
+        }
+    }
+
+    .mat-mdc-card-subtitle {
+        font-size: 2rem;
+    }
+
+    .mat-mdc-card-content {
+        padding: 0;
+    }
+
+    .mat-mdc-card-header {
+        padding: 0;
+    }
+}
+
+@media all and (max-width: 430px) {
+    .profile-card {
+        min-width: 25rem;
+
+        &__edit,
+        &__delete {
+            margin-bottom: 1rem;
+        }
+    }
+
+    .buttons-container {
+        display: block;
+        text-align: end;
+    }
+
+    .mat-mdc-card-subtitle {
+        font-size: 2.5rem;
+    }
+}
