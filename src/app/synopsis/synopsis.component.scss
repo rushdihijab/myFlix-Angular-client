@@ -1,0 +1,50 @@
+.synopsis-card {
+    max-width: 50rem;
+    padding: 2.5rem;
+    background-color: #383838;
+    color: hsla(0, 6%, 93%, 0.923);
+    box-shadow: 0 0 2rem rgba(255, 255, 255);
+    line-height: 1.5;
+
+    &__close {
+        margin-left: auto;
+        background-color: transparent;
+        border: none;
+        border-radius: 2px;
+        color: #fff;
+
+        &:hover {
+            cursor: pointer;
+            border-radius: 2px;
+            background-color: #7b7a7ac4;
+        }
+    }
+
+    &__title {
+        color: #fff;
+        font-size: 2.4rem;
+        font-weight: 500;
+    }
+}
+
+.mat-mdc-card-header {
+    padding: 0;
+}
+
+@media all and (max-width: 380px) {
+    .synopsis-card {
+        padding: 0;
+    }
+
+    .mat-mdc-card-header {
+        padding: 2rem 2rem 0;
+    }
+
+    .mat-mdc-card-content {
+        padding: 0 2rem 2rem;
+    }
+
+    .mat-mdc-card-content p {
+        margin-top: .5rem;
+    }
+}
