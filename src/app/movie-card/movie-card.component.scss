@@ -1,0 +1,33 @@
+/* Set a fixed height for all the mat-cards */
+mat-card {
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Center the movie titles and subtitles */
+mat-card-title,
+mat-card-subtitle {
+    text-align: center;
+}
+
+/* Style the movie posters */
+img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Style the mat-card actions */
+mat-card-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Add some padding to the mat-card actions */
+button {
+    padding: 8px 16px;
+}
