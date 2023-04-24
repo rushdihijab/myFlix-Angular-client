@@ -15,7 +15,7 @@ import { SynopsisComponent } from '../synopsis/synopsis.component';
 export class MovieCardComponent implements OnInit {
   movies: any[] = [];
   user: any = {};
-  favoriteMovies: any[] = [];
+  favMovies: any = [];
 
   constructor(
     public fetchApiDataService: FetchApiDataService,
@@ -42,17 +42,55 @@ export class MovieCardComponent implements OnInit {
   }
 
   /**
-  * Fetch user info via API and set favoriteMovies variable to FavoriteMovies property of the returned 
-  * user object
-  * @returns an array holding movieIDs
-  */
+   * Fetch user data via API and set favourite movies state to returned data 
+   * @returns an array of user's favorite movie IDs
+   * @function getFavMovies
+   */
   getFavMovies(): void {
-    this.fetchApiDataService.getUser().subscribe((res: any) => {
-      this.favoriteMovies = res.FavoriteMovies;
-      //console.log('getFavMovies():', res.FavoriteMovies);
-      return this.favoriteMovies;
+    this.fetchApiDataService.getUser().subscribe((resp: any) => {
+      this.favMovies = resp.FavoriteMovies;
+      console.log(this.favMovies)
+      return this.favMovies;
     })
   }
+
+  /**
+   * Adds the movie to user's favourites or remove one if it is in the favorites list 
+   * and update favourite movies state
+   * @param {string} movieId 
+   * @returns updates user object
+   * @function toggleFavMovie
+   */
+  toggleFavMovie(movieId: string): void {
+    if (!this.favMovies.includes(movieId)) {
+      // Adds a movie to favorite
+      this.fetchApiDataService.addFavMovie(movieId).subscribe({
+        next: (resp: any) => {
+          console.log(resp);
+          this.favMovies = resp.FavoriteMovies;
+          this.snackBar.open('Added to favorite!', 'OK', { duration: 2000 });
+        },
+        error: (error) => {
+          console.log(error);
+          this.snackBar.open(error, 'OK', { duration: 2000 })
+        },
+      })
+    } else {
+      // Removes a movie from favorite
+      this.fetchApiDataService.deleteFavMovie(movieId).subscribe({
+        next: (resp: any) => {
+          console.log(resp);
+          this.favMovies = resp.FavoriteMovies;
+          this.snackBar.open('Removed from favorite', 'OK', { duration: 2000 });
+        },
+        error: (error) => {
+          console.log(error);
+          this.snackBar.open(error, 'OK', { duration: 2000 })
+        },
+      })
+    }
+  }
+
 
   /**
    * Opens GenreComponent as a dialog
@@ -97,45 +135,7 @@ export class MovieCardComponent implements OnInit {
       }
     });
   }
+
+
+
 }
-/**
- * Add/remove a movie into/from the favorite movies list
- *
- * @remarks
- * Check if the favoriteMovies variable contains the movieID, if no, make API call to add this ID into the
- * user's FavoriteMovie property, if yes, make API call to delete this ID. Ater the API call,
- * set the favoriteMovies variable to the updated FavoriteMovies property. Open snackBar to inform.
- *
- * @param id - movieID of the particular movie
- */
-//   onToggleFavMovie(id: string): void {
-//     //console.log(this.favoriteMovies);
-//     if (!this.favoriteMovies.includes(id)) {
-//       this.fetchApiDataService.addFavoriteMovie(id).subscribe((res) => {
-//         this.favoriteMovies = res.FavoriteMovies;
-//         this.snackBar.open('Movie added to favourites.', 'OK', {
-//           duration: 3000
-//         })
-//       }, (res) => {
-//         //Error response
-//         //console.log('loginUser() response2:', res);
-//         this.snackBar.open(res.message, 'OK', {
-//           duration: 4000
-//         });
-//       })
-//     } else {
-//       this.fetchApiDataService.deleteFavoriteMovie(id).subscribe((res) => {
-//         this.favoriteMovies = res.FavoriteMovies;
-//         this.snackBar.open('Movie removed from favourites.', 'OK', {
-//           duration: 3000
-//         })
-//       }, (res) => {
-//         //Error response
-//         //console.log('loginUser() response2:', res);
-//         this.snackBar.open(res.message, 'OK', {
-//           duration: 4000
-//         });
-//       })
-//     }
-//   }
-//  }
