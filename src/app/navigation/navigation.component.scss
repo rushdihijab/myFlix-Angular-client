@@ -1,0 +1,74 @@
+a:link,
+a:visited {
+    text-decoration: none;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.movies-button {
+    font-family: 'Passion One', cursive;
+    font-size: 3.6rem;
+}
+
+.profile-button {
+    margin-right: 1.6rem;
+
+}
+
+.profile-button,
+.logout-icon {
+    font-size: 1.8rem;
+
+    &:hover {
+        background-color: rgba(29, 29, 29, 0.597);
+    }
+}
+
+.mat-toolbar-single-row {
+
+    color: #fff;
+}
+
+.mdc-button__label {
+    color: #fff;
+}
+
+.mat-mdc-button>.mat-icon {
+    width: 1.8rem;
+    height: 1.8rem;
+    font-size: 1.6rem;
+}
+
+
+@media all and (max-width: 380px) {
+    .movies-button {
+        font-size: 3rem;
+    }
+
+    .profile-button,
+    .logout-icon {
+        font-size: 1.6rem;
+    }
+
+    .profile-button {
+        margin-right: .5rem;
+    }
+
+    .mat-mdc-button>.mat-icon {
+        width: 1.6rem;
+        height: 1.6rem;
+        font-size: 1.4rem;
+    }
+}
+
+.mat-toolbar-single-row {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background-color: #383838;
+    color: #fff;
+}
