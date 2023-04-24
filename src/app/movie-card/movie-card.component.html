@@ -19,7 +19,13 @@
                 Synopsis
             </button>
 
-            <mat-icon>favorite_border</mat-icon>
+            <button mat-icon-button color="warn" class="movie-card__fav-box"
+                aria-label="heart icon button to add/remove movie to/from favorites"
+                (click)="toggleFavMovie(movie._id)">
+                <mat-icon class="movie-card__fav">
+                    {{favMovies.includes(movie._id) ? 'favorite' : 'favorite_border'}}
+                </mat-icon>
+            </button>
         </mat-card-actions>
     </mat-card>
 </div>
