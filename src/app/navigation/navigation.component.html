@@ -1,1 +1,16 @@
-<p>navigation works!</p>
+<mat-toolbar>
+    <!-- <button mat-icon-button class="myFlix-icon" aria-label="icon-button with myFlix icon">
+      <mat-icon></mat-icon>
+    </button> -->
+    <a mat-button routerLink="/movies" class="" aria-label="button for movies page / main page">
+        <h1>Movies</h1>
+    </a>
+    <span class="example-spacer"></span>
+    <a mat-button routerLink="/profile" class="profile-button" aria-label="button for profile page">
+        <span>Profile</span>
+    </a>
+    <button mat-button class="logout-icon" aria-label="button to log out" (click)="logOutUser()">
+        <span>Log out</span>
+        <mat-icon>exit_to_app</mat-icon>
+    </button>
+</mat-toolbar>
