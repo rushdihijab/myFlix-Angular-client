@@ -32,6 +32,7 @@ export class MovieCardComponent implements OnInit {
   /**
    * Fetch movies via API and set movies variable to returned array of movie objects
    * @returns an array holding movie objects
+   * @function getMovies
    */
   getMovies(): void {
     this.fetchApiDataService.getAllMovies().subscribe((res: any) => {
@@ -96,6 +97,7 @@ export class MovieCardComponent implements OnInit {
    * Opens GenreComponent as a dialog
    * @param name - name of the genre
    * @param description - description of the genre
+   * @function openGenreDialog
    */
   openGenreDialog(name: string, description: string): void {
     this.dialog.open(GenreComponent, {
@@ -111,6 +113,7 @@ export class MovieCardComponent implements OnInit {
    * @param name - name of the director
    * @param bio - bio of the director
    * @param birth - birthyear of the director
+   * @function openDirectorDialog
    */
   openDirectorDialog(name: string, bio: string, birth: string): void {
     this.dialog.open(DirectorComponent, {
@@ -126,6 +129,7 @@ export class MovieCardComponent implements OnInit {
    * Opens SynopsisComponent as a dialog
    * @param title - title of the movie
    * @param description - description of the movie
+   * @function openSynopsisDialog
    */
   openSynopsisDialog(title: string, description: string): void {
     this.dialog.open(SynopsisComponent, {
